@@ -9,6 +9,7 @@ dotenv.config()
 const App = Express()
 App.use(cors())
 App.use(Express.json({ limit: '50mb' }))
+App.disable('x-powered-by')
 
 App.get('/', (req, res) => {
   res.send({ message: 'Hello World!' })
