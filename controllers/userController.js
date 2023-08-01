@@ -51,12 +51,15 @@ async function createUser (req, res) {
   try {
     if (await User.findOne({ email: req.body.email })) throw new Error('Email already exists')
 
+    const { url } = await cloudinary.uploader.upload(`img/${req.file.filename}`)
+
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
-      avatar: req.body.avatar
+      photoUrl: url
 
     })
+    console.log(newUser)
 
     res.status(200).json({
       status: 'success',

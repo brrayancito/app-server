@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  photoUrl: {
+    type: String,
+    required: true
+  },
   allProperties: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Property' }]
 })
 
