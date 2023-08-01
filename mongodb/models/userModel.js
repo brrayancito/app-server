@@ -4,14 +4,12 @@ const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
+
   },
   email: {
     type: String,
-    required: true
-  },
-  avatar: {
-    type: String,
-    required: true
+    required: true,
+    unique: true
   },
   allProperties: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Property' }]
 })
